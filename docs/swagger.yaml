@@ -1,0 +1,75 @@
+basePath: /
+definitions:
+  model.User:
+    properties:
+      age:
+        type: integer
+      id:
+        type: string
+      username:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  title: Wookiist Sample Swagger API
+  version: "1.0"
+paths:
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: Create new user
+      parameters:
+      - description: User Info Body
+        in: body
+        name: userBody
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: Create user
+  /user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user's info
+      parameters:
+      - description: ID of the user
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: Delete user
+    get:
+      consumes:
+      - application/json
+      description: Get user's info
+      parameters:
+      - description: ID of the user
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: Get user
+swagger: "2.0"
