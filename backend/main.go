@@ -1,4 +1,4 @@
-package main
+package 
 
 import (
 	_ "backend/docs"
